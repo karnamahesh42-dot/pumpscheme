@@ -16,7 +16,7 @@ class App extends BaseConfig
      *
      * E.g., http://example.com/
      */
-    public string $baseURL = 'http://localhost/watertax/';
+    public string $baseURL = 'http://localhost/pumpscheme/';
     // public string $baseURL = 'http://192.168.24.186/VMSShell/';
 
     

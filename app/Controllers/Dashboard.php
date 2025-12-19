@@ -2,27 +2,27 @@
 
 namespace App\Controllers;
 
-use App\Models\VisitorRequestModel;
-use App\Models\VisitorLogModel;
-use App\Models\SecurityGateLogModel;
-use App\Models\VisitorRequestHeaderModel;
+// use App\Models\VisitorRequestModel;
+// use App\Models\VisitorLogModel;
+// use App\Models\SecurityGateLogModel;
+// use App\Models\VisitorRequestHeaderModel;
 
 
 class Dashboard extends BaseController
 {
-    protected $visitorModel;
-    protected $logModel;
-    protected $SecurityGateLogModel;
-    protected $VisitorRequestHeaderModel;
+    // protected $visitorModel;
+    // protected $logModel;
+    // protected $SecurityGateLogModel;
+    // protected $VisitorRequestHeaderModel;
 
     
 
     public function __construct()
     {
-        $this->visitorModel = new VisitorRequestModel();
-        $this->logModel     = new VisitorLogModel();
-        $this->SecurityGateLogModel     = new SecurityGateLogModel();
-        $this->VisitorRequestHeaderModel     = new VisitorRequestHeaderModel();
+        // $this->visitorModel = new VisitorRequestModel();
+        // $this->logModel     = new VisitorLogModel();
+        // $this->SecurityGateLogModel     = new SecurityGateLogModel();
+        // $this->VisitorRequestHeaderModel     = new VisitorRequestHeaderModel();
 
     }
 

@@ -88,6 +88,15 @@ h1, h2, h3, h4, .card-title {
         </a>
       </li>
 
+      
+     <li>
+        <a class="nav-link <?= (uri_string()=='userlist') ? 'active' : '' ?>"
+         href="<?= base_url('userlist') ?>">
+          <i class="bi bi-box-arrow-right"></i> User
+        </a>
+      </li>
+
+      
 
       <li>
         <a class="nav-link" href="<?= base_url('logout') ?>">
