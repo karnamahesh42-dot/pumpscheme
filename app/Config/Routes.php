@@ -7,6 +7,13 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Dashboard::index');
 $routes->get('/home', 'Dashboard::index');
+$routes->post('land/pattadarDetails', 'Dashboard::pattadarDetails');
+$routes->get('land/pattadarDetails', 'Dashboard::pattadarDetails');
+$routes->post('land/payUpdate', 'Dashboard::payUpdate');
+$routes->get('land/receipt/(:num)', 'Dashboard::receipt/$1');
+
+
+
 
 $routes->get('/login', 'Login::index');
 $routes->get('/logout', 'Login::logout');
@@ -18,6 +25,23 @@ $routes->get('/userlist', 'User::userListData');
 $routes->get('/user/get/(:num)', 'User::get/$1');
 $routes->post('user/update', 'User::update');
 $routes->post('user/toggleStatus', 'User::toggleStatus');
+
+$routes->get('land/import', 'LandImportController::index');
+$routes->post('land/import-excel', 'LandImportController::importExcel');
+// $routes->get('land/list', 'LandImportController::landListView');
+
+$routes->get('land/list', 'LandImportController::landList');
+$routes->post('land/list', 'LandImportController::landList');
+
+$routes->get('testLib', 'TestExcel::loadExcel');
+
+$routes->get('land/create', 'LandImportController::createform');
+$routes->post('land/store', 'LandImportController::saveLandData');
+
+
+
+
+
 
 // $routes->get('/', 'VisitorController::create');
 // $routes->get('/visitor/create','VisitorController::create');

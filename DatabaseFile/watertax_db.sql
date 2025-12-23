@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2025 at 06:03 PM
+-- Generation Time: Dec 23, 2025 at 08:17 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,33 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `watertax_db`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `boomidari_master`
---
-
-CREATE TABLE `boomidari_master` (
-  `id` int(11) NOT NULL,
-  `khatha_no` varchar(50) DEFAULT NULL,
-  `pattadari_name` varchar(150) DEFAULT NULL,
-  `father_name` varchar(150) DEFAULT NULL,
-  `lp_no` varchar(50) DEFAULT NULL,
-  `old_survey_no` varchar(50) DEFAULT NULL,
-  `ul_pi_no` varchar(50) DEFAULT NULL,
-  `boomi_swabhavamu` varchar(100) DEFAULT NULL,
-  `boomi_upa_swabhavamu` varchar(100) DEFAULT NULL,
-  `boomi_vargeekarana` varchar(100) DEFAULT NULL,
-  `boomi_upa_vargeekarana` varchar(100) DEFAULT NULL,
-  `lp_extent` decimal(10,2) DEFAULT NULL,
-  `anubhava_swabhavamu` varchar(100) DEFAULT NULL,
-  `phone_number` varchar(15) DEFAULT NULL,
-  `remarks` text DEFAULT NULL,
-  `status` tinyint(4) DEFAULT 1,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -70,6 +43,101 @@ INSERT INTO `departments` (`id`, `department_name`) VALUES
 (4, 'Procurement'),
 (6, 'Security'),
 (5, 'Stores');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `land_records`
+--
+
+CREATE TABLE `land_records` (
+  `id` int(11) NOT NULL,
+  `serial_no` int(11) DEFAULT NULL,
+  `khata_no` varchar(50) DEFAULT NULL,
+  `pattadar_name` varchar(255) DEFAULT NULL,
+  `lp_number` varchar(50) DEFAULT NULL,
+  `old_survey_no` varchar(100) DEFAULT NULL,
+  `ulpin` varchar(50) DEFAULT NULL,
+  `land_nature` varchar(100) DEFAULT NULL,
+  `land_sub_nature` varchar(100) DEFAULT NULL,
+  `land_classification` varchar(150) DEFAULT NULL,
+  `land_sub_classification` varchar(150) DEFAULT NULL,
+  `lp_extent` decimal(10,2) DEFAULT NULL,
+  `pay_amount` decimal(10,2) DEFAULT 0.00,
+  `pay_status` enum('Pending','Paid') DEFAULT 'Pending',
+  `payed_at` date DEFAULT NULL,
+  `payed_by` int(2) NOT NULL,
+  `possession_type` varchar(100) DEFAULT NULL,
+  `contact_details` varchar(150) DEFAULT NULL,
+  `remarks` text DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `tax_amount` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `land_records`
+--
+
+INSERT INTO `land_records` (`id`, `serial_no`, `khata_no`, `pattadar_name`, `lp_number`, `old_survey_no`, `ulpin`, `land_nature`, `land_sub_nature`, `land_classification`, `land_sub_classification`, `lp_extent`, `pay_amount`, `pay_status`, `payed_at`, `payed_by`, `possession_type`, `contact_details`, `remarks`, `created_at`, `tax_amount`) VALUES
+(2, 1, '637', '3ొణతాల పట్టియ్యమ్మ / వీరవెంకట రామారావు', '1115', '271-2', '-', 'పట్టా / జిరాయితీ భూమి', '- / -', 'మాగాణి / పల్లం / తరి', 'మధ్యస్థ/చిన్న నీటి వనరుల కింద భూమి / -', 0.98, 0.00, 'Pending', NULL, 0, 'వారసత్వం', 'XXXX-XXXX-3888 / 95XXXXXX14', '-', '2025-12-22 23:33:00', 0),
+(3, 2, '637', '3ొణతాల పట్టియ్యమ్మ / వీరవెంకట రామారావు', '1532', '355-4', '-', 'పట్టా / జిరాయితీ భూమి', '- / -', 'మెట్ట / మెరక / ఖుష్కి', 'పట్టాదారు / -', 1.01, 0.00, 'Pending', NULL, 0, 'వారసత్వం', 'XXXX-XXXX-3888 / 95XXXXXX14', '-', '2025-12-22 23:33:00', 0),
+(4, 3, '637', '3ొణతాల పట్టియ్యమ్మ / వీరవెంకట రామారావు', '1534', '355-1,355-2,355-5', '-', 'పట్టా / జిరాయితీ భూమి', '- / -', 'మాగాణి / పల్లం / తరి', 'మధ్యస్థ/చిన్న నీటి వనరుల కింద భూమి / -', 1.10, 0.00, 'Pending', NULL, 0, 'వారసత్వం', 'XXXX-XXXX-3888 / 95XXXXXX14', '-', '2025-12-22 23:33:00', 0),
+(5, 1, '5174', 'Addagarla Rama Krishna / Addagarla Saggurudu', '1207', '279', '-', 'పట్టా / జిరాయితీ భూమి', '- / -', 'మాగాణి / పల్లం / తరి', 'మధ్యస్థ/చిన్న నీటి వనరుల కింద భూమి / -', 0.22, 0.00, 'Pending', NULL, 0, 'కొనుగోలు / క్రయం', 'XXXX-XXXX-8117 / 90XXXXXX46', '-', '2025-12-22 23:33:00', 0),
+(6, 2, '5174', 'Addagarla Rama Krishna / Addagarla Saggurudu', '1208', '279', '-', 'పట్టా / జిరాయితీ భూమి', '- / -', 'మాగాణి / పల్లం / తరి', 'మధ్యస్థ/చిన్న నీటి వనరుల కింద భూమి / -', 0.22, 0.00, 'Pending', NULL, 0, 'కొనుగోలు / క్రయం', 'XXXX-XXXX-8117 / 90XXXXXX46', '-', '2025-12-22 23:33:00', 0),
+(7, 3, '5174', 'Addagarla Rama Krishna / Addagarla Saggurudu', '1209', '279', '-', 'పట్టా / జిరాయితీ భూమి', '- / -', 'మాగాణి / పల్లం / తరి', 'మధ్యస్థ/చిన్న నీటి వనరుల కింద భూమి / -', 0.22, 0.00, 'Pending', NULL, 0, 'కొనుగోలు / క్రయం', 'XXXX-XXXX-8117 / 90XXXXXX46', '-', '2025-12-22 23:33:00', 0),
+(8, 4, '5174', 'Addagarla Rama Krishna / Addagarla Saggurudu', '1210', '279', '-', 'పట్టా / జిరాయితీ భూమి', '- / -', 'మాగాణి / పల్లం / తరి', 'మధ్యస్థ/చిన్న నీటి వనరుల కింద భూమి / -', 0.22, 0.00, 'Pending', NULL, 0, 'కొనుగోలు / క్రయం', 'XXXX-XXXX-8117 / 90XXXXXX46', '-', '2025-12-22 23:33:00', 0),
+(9, 5, '5174', 'Addagarla Rama Krishna / Addagarla Saggurudu', '1220', '279', '-', 'పట్టా / జిరాయితీ భూమి', '- / -', 'మాగాణి / పల్లం / తరి', 'మధ్యస్థ/చిన్న నీటి వనరుల కింద భూమి / -', 0.22, 0.00, 'Pending', NULL, 0, 'కొనుగోలు / క్రయం', 'XXXX-XXXX-8117 / 90XXXXXX46', '-', '2025-12-22 23:33:00', 0),
+(10, 1, '5025', 'Addala Pravallika / Addala Satyanarayana', '1395', '325-1', '-', 'పట్టా / జిరాయితీ భూమి', '- / -', 'మాగాణి / పల్లం / తరి', 'మధ్యస్థ/చిన్న నీటి వనరుల కింద భూమి / -', 0.69, 0.00, 'Pending', NULL, 0, 'కొనుగోలు / క్రయం', 'XXXX-XXXX-6233 / 94XXXXXX95', '-', '2025-12-22 23:33:00', 0),
+(11, 2, '5025', 'Addala Pravallika / Addala Satyanarayana', '2148', '444-1', '-', 'పట్టా / జిరాయితీ భూమి', '- / -', 'మాగాణి / పల్లం / తరి', 'మధ్యస్థ/చిన్న నీటి వనరుల కింద భూమి / -', 0.73, 0.00, 'Pending', NULL, 0, 'కొనుగోలు / క్రయం', 'XXXX-XXXX-6233 / 94XXXXXX95', '-', '2025-12-22 23:33:00', 0),
+(12, 1, '5206', 'Adireddy Lakshmi Krishna Padmavathi / Adireddy Siva Kumar', '4996', '243', '-', 'పట్టా / జిరాయితీ భూమి', '- / -', 'మాగాణి / పల్లం / తరి', 'మధ్యస్థ/చిన్న నీటి వనరుల కింద భూమి / -', 0.50, 0.00, 'Pending', NULL, 0, 'విభజన', 'XXXX-XXXX-6487 / 94XXXXXX23', '-', '2025-12-22 23:33:00', 0),
+(13, 1, '5163', 'Akkabattula Lakshmanarao / Simhadri', '4959', '569-3', '-', 'పట్టా / జిరాయితీ భూమి', '- / -', 'మెట్ట / మెరక / ఖుష్కి', 'పట్టాదారు / -', 1.00, 0.00, 'Pending', NULL, 0, 'కొనుగోలు / క్రయం', 'XXXX-XXXX-6709 / 99XXXXXX35', '-', '2025-12-22 23:33:00', 0),
+(14, 1, '5046', 'Akula Srilakshmi / Akula Rambabu', '4526', '678-1,679-2', '-', 'పట్టా / జిరాయితీ భూమి', '- / -', 'మాగాణి / పల్లం / తరి', 'మధ్యస్థ/చిన్న నీటి వనరుల కింద భూమి / -', 0.50, 0.00, 'Pending', NULL, 0, 'కొనుగోలు / క్రయం', 'XXXX-XXXX-2154 / 92XXXXXX10', '-', '2025-12-22 23:33:01', 0),
+(15, 2, '5046', 'Akula Srilakshmi / Akula Rambabu', '4955', '606-2B', '-', 'పట్టా / జిరాయితీ భూమి', '- / -', 'మెట్ట / మెరక / ఖుష్కి', 'పట్టాదారు / -', 0.30, 0.00, 'Pending', NULL, 0, 'బహుమతి', 'XXXX-XXXX-2154 / 92XXXXXX10', '-', '2025-12-22 23:33:01', 0),
+(16, 1, '5098', 'Alle Veera Venkata Satyavathi / Alle Satyanarayana', '4722', '182', '-', 'పట్టా / జిరాయితీ భూమి', '- / -', 'మాగాణి / పల్లం / తరి', 'మధ్యస్థ/చిన్న నీటి వనరుల కింద భూమి / -', 0.25, 0.00, 'Pending', NULL, 0, 'బహుమతి', 'XXXX-XXXX-9446 / 80XXXXXX17', '-', '2025-12-22 23:33:01', 0),
+(17, 1, '5226', 'Althi Jyotsna Devi / Althi Bapiraju', '862', '190-2D2', '-', 'పట్టా / జిరాయితీ భూమి', '- / -', 'మాగాణి / పల్లం / తరి', 'మధ్యస్థ/చిన్న నీటి వనరుల కింద భూమి / -', 0.51, 0.00, 'Pending', NULL, 0, 'బహుమతి', 'XXXX-XXXX-5111 / 81XXXXXX00', '-', '2025-12-22 23:33:01', 0),
+(18, 1, '5032', 'Amisetti Ramakrishna / Late Amisetti Lakshmanaswami', '5485', '175-6', '-', 'పట్టా / జిరాయితీ భూమి', '- / -', 'మాగాణి / పల్లం / తరి', 'మధ్యస్థ/చిన్న నీటి వనరుల కింద భూమి / -', 0.30, 0.00, 'Pending', NULL, 0, 'కొనుగోలు / క్రయం', 'XXXX-XXXX-0260 / 70XXXXXX46', '-', '2025-12-22 23:33:01', 0),
+(20, 1, '2565', 'Golla Mahesh Karna/Golla Anjineyulu', '125', '251-B', '000', 'పట్టా / జిరాయితీ భూమి', 'పల్లం / మెరక', '', '', 0.25, 0.00, 'Pending', NULL, 0, 'వారసత్వం / కొనుగోలు / క్రయం / బహుమతి / విభజన', '8919146333', 'test', '2025-12-23 21:01:36', 0),
+(21, 2, '2565', 'Golla Mahesh Karna/Golla Anjineyulu', '159', '252-A', '000', 'పట్టా / జిరాయితీ భూమి', 'పల్లం / మెరక', '', '', 0.50, 0.00, 'Pending', NULL, 0, 'వారసత్వం / కొనుగోలు / క్రయం / బహుమతి / విభజన', '8919146333', 'test', '2025-12-23 21:01:36', 0),
+(22, 1, '7531', 'Golla Philip/Golla Anjineyulu', '1321', '123-S', '', 'పట్టా / జిరాయితీ భూమి', '-/-', 'పల్లం / మెరక', '', 0.20, 100.00, 'Paid', '2025-12-24', 1, 'వారసత్వం / కొనుగోలు / క్రయం / బహుమతి / విభజన', '', '', '2025-12-23 22:24:46', 1200);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `land_sub_nature_master`
+--
+
+CREATE TABLE `land_sub_nature_master` (
+  `id` int(11) NOT NULL,
+  `name_te` varchar(150) NOT NULL,
+  `name_en` varchar(150) DEFAULT NULL,
+  `status` tinyint(4) DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `land_survey_master`
+--
+
+CREATE TABLE `land_survey_master` (
+  `id` int(11) NOT NULL,
+  `lp_number` int(11) NOT NULL,
+  `old_survey_no` varchar(100) DEFAULT NULL,
+  `sub_division` varchar(50) DEFAULT NULL,
+  `ulpin` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ownership_type_master`
+--
+
+CREATE TABLE `ownership_type_master` (
+  `id` int(11) NOT NULL,
+  `name_te` varchar(100) NOT NULL,
+  `status` tinyint(4) DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -190,17 +258,36 @@ INSERT INTO `visitor_logs` (`id`, `visitor_request_id`, `action_type`, `old_stat
 --
 
 --
--- Indexes for table `boomidari_master`
---
-ALTER TABLE `boomidari_master`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `departments`
 --
 ALTER TABLE `departments`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `department_name` (`department_name`);
+
+--
+-- Indexes for table `land_records`
+--
+ALTER TABLE `land_records`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `land_sub_nature_master`
+--
+ALTER TABLE `land_sub_nature_master`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `land_survey_master`
+--
+ALTER TABLE `land_survey_master`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `lp_number` (`lp_number`,`old_survey_no`);
+
+--
+-- Indexes for table `ownership_type_master`
+--
+ALTER TABLE `ownership_type_master`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `roles`
@@ -238,16 +325,34 @@ ALTER TABLE `visitor_logs`
 --
 
 --
--- AUTO_INCREMENT for table `boomidari_master`
---
-ALTER TABLE `boomidari_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `land_records`
+--
+ALTER TABLE `land_records`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `land_sub_nature_master`
+--
+ALTER TABLE `land_sub_nature_master`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `land_survey_master`
+--
+ALTER TABLE `land_survey_master`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ownership_type_master`
+--
+ALTER TABLE `ownership_type_master`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `roles`

@@ -81,28 +81,45 @@ h1, h2, h3, h4, .card-title {
 
   <ul class="nav flex-column">
 
-      <li>
+        <li>
         <a class="nav-link <?= (uri_string()=='' || uri_string()=='dashboard') ? 'active' : '' ?>" 
           href="<?= base_url('/') ?>">
-          <i class="bi bi-house-fill"></i> Home
+            <i class="bi bi-house-fill"></i>
+            డ్యాష్‌బోర్డ్
         </a>
-      </li>
+    </li>
 
-      
-     <li>
+    <li>
         <a class="nav-link <?= (uri_string()=='userlist') ? 'active' : '' ?>"
-         href="<?= base_url('userlist') ?>">
-          <i class="bi bi-box-arrow-right"></i> User
+          href="<?= base_url('userlist') ?>">
+            <i class="bi bi-people-fill"></i>
+            వినియోగదారులు
         </a>
-      </li>
+    </li>
 
-      
+    <li>
+        <a class="nav-link <?= (uri_string()=='land/import') ? 'active' : '' ?>"
+          href="<?= base_url('land/import') ?>">
+            <i class="bi bi-upload"></i>
+            భూమి డేటా దిగుమతి
+        </a>
+    </li>
 
-      <li>
+    <li>
+        <a class="nav-link <?= (uri_string()=='land/list') ? 'active' : '' ?>"
+          href="<?= base_url('land/list') ?>">
+            <i class="bi bi-table"></i>
+            భూమి వివరాల జాబితా
+        </a>
+    </li>
+
+    <li>
         <a class="nav-link" href="<?= base_url('logout') ?>">
-          <i class="bi bi-box-arrow-right"></i> Logout
+            <i class="bi bi-box-arrow-right"></i>
+            లాగ్‌అవుట్
         </a>
-      </li>
+    </li>
+
 
   </ul>
 
